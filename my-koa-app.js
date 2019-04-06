@@ -33,4 +33,4 @@ router.get("/test", async function(ctx) {
 
 app.use(router.routes());
 
-app.listen(port);
+app.listen(port, () => console.log(`Listening on ${port}`));
