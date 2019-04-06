@@ -10,10 +10,7 @@ const port = process.env.PORT || 3000;
 
 // 設定根路徑的處理函數
 router.get("/", async function(ctx) {
-  let a = ctx.query.name;
-  let b = ctx.query.msg;
-  ctx.body = { payload: a + b + "hello worldqwe" };
-  //   ctx.status = 501;
+  ctx.body = "hello world";
 });
 
 router.post("/132", async function(ctx) {
@@ -26,7 +23,6 @@ router.get("/test", async function(ctx) {
   // 檢查 Token，若有問題回傳 400 HTTP StatusCode
   ctx.body = "123123";
   if (ctx.query.token == "123") ctx.throw(400);
-
   // 若已經拋出 400 的狀態，接下來的程式不會被執行
   ctx.body = "Hello World";
 });
