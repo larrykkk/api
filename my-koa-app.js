@@ -6,13 +6,14 @@ const app = new Koa();
 const router = Router();
 app.use(bodyParser());
 app.use(formidable());
+const port = process.env.PORT || 3000;
 
 // 設定根路徑的處理函數
 router.get("/", async function(ctx) {
   let a = ctx.query.name;
   let b = ctx.query.msg;
-  ctx.body = { payload: a + b + "hello world"};
-//   ctx.status = 501;
+  ctx.body = { payload: a + b + "hello worldqwe" };
+  //   ctx.status = 501;
 });
 
 router.post("/132", async function(ctx) {
@@ -32,4 +33,4 @@ router.get("/test", async function(ctx) {
 
 app.use(router.routes());
 
-app.listen(3000);
+app.listen(port);
