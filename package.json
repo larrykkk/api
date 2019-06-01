@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node my-koa-app.js"
+    "start": "nodemon my-koa-app.js"
   },
   "repository": {
     "type": "git",
@@ -19,10 +19,14 @@
   },
   "homepage": "https://github.com/larrykkk/api#readme",
   "dependencies": {
+    "fs": "0.0.1-security",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
+    "koa-multer": "^1.0.2",
     "koa-router": "^7.4.0",
     "koa2-formidable": "^1.0.2",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "path": "^0.12.7",
+    "pg": "^7.11.0"
   }
 }
