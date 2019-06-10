@@ -12,7 +12,7 @@ const app = new Koa();
 const upload = multer({ dest: "uploads/" });
 const router = Router();
 app.use(bodyParser());
-// app.use(formidable());
+app.use(formidable());
 app.use(
   cors({
     origin: function(ctx) {
@@ -55,13 +55,14 @@ router.post("/api/image", async (ctx, next) => {
   let { body, files } = ctx.request;
   // console.log(body);
   // console.log(files);
-  console.log(files.avatar);
+  // console.log(files);
+  console.log(files.image);
   console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
   // console.log(files.path);
 
-  const reader = fs.createReadStream(files.avatar.path);
-  console.log(reader);
-  let filePath = path.join(__dirname, "uploads/") + `/${files.avatar.name}`;
+  const reader = fs.createReadStream(files.image.path);
+  // console.log(reader);
+  let filePath = path.join(__dirname, "uploads/") + `/${files.image.name}`;
   const upStream = fs.createWriteStream(filePath);
   reader.pipe(upStream);
   return (ctx.body = "上傳成功！");
